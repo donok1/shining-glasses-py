@@ -1,0 +1,2 @@
+# Shining Glasses (Python BLE)
+This project is heavily based on this [reddit thread](https://www.reddit.com/r/ReverseEngineering/comments/lr9xxr/comment/h14nm39/?utm_source=reddit&utm_medium=web2x&context=3)
