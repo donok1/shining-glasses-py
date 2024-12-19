@@ -10,3 +10,9 @@ if __name__ == "__main__":
     glasses.set_light(brightness=100)
     glasses.set_image(img_idx=0)
     glasses.play(n_imgs=1, img_idcs=[0])
+
+    glasses.driver.notifications.add_callback(lambda x: print(f"Notification: {x}"))
+    glasses.subscribe_to_notifications()
+    glasses.check()
+
+    driver.disconnect()
