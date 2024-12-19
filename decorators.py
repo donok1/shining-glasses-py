@@ -12,6 +12,13 @@ def WriteCharacteristic(write_characteristic):
         return wrapper
     return inner
 
+def NotificationCharacteristic(notification_characteristic):
+    def inner(func):
+        def wrapper(*args, **kwargs):
+            return func(*args, **kwargs, notification_characteristic=notification_characteristic)
+        return wrapper
+    return inner
+
 def ReadCharacteristic(read_characteristic):
     def inner(func):
         def wrapper(*args, **kwargs):
