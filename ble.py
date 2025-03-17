@@ -32,3 +32,11 @@ def ble_scan(adapter, device_name, timeout=5000):
     adapter.set_callback_on_scan_found(ble_log)
 
     return device
+
+def ble_scan_hats(adapter, timeout=5000):
+    def on_receive(scan_entry):
+        if scan_entry.identifier().startswith("GLASSES-")  :
+            print(f"Found {scan_entry.address()} [{scan_entry.identifier()}]")
+    adapter.set_callback_on_scan_found(on_receive)
+    adapter.scan_for(timeout)
+    adapter.set_callback_on_scan_found(ble_log)

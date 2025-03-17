@@ -135,7 +135,7 @@ class ShiningGlasses():
     @WriteCharacteristic("d44bc439-abfd-45a2-b575-925416129600")
     def set_mode(self, mode, **k):
         self._assert_connected()
-        if isinstance(mode, ShiningGlasses.SGTextMode):
+        if isinstance(mode, SGTextMode):
             mode = mode.value
         assert_type(mode, int)
         assert_int_range(mode, 0, 5)
@@ -155,7 +155,7 @@ class ShiningGlasses():
     @WriteCharacteristic("d44bc439-abfd-45a2-b575-925416129600")
     def set_text_color_mode(self, mode, **k):
         self._assert_connected()
-        if isinstance(mode, ShiningGlasses.SGBackgroundColorMode):
+        if isinstance(mode, SGBackgroundColorMode):
             mode = mode.value
         assert_type(mode, int)
         assert_int_range(mode, 0, 7)

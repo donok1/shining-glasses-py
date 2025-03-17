@@ -145,10 +145,10 @@ class BLEDriver:
 
 
 class ShiningGlassesDriver(BLEDriver):
-    def __init__(self, adapter):
+    def __init__(self, adapter, device_name="GLASSES-01FF46"):
         super().__init__(
             adapter,
             encryption=(AES_KEY, AES_MODE),
             align_amount=16,
-            device_name="GLASSES-01FF46"
+            device_name=device_name
         )
