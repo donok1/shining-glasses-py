@@ -31,11 +31,12 @@ class SGTextType:
 
 class SGText:
     text = SGTextType(
-        "Hello, World!",
-        SGTextMode.TEXT_STATIC,
-        1,
-        (0, 0, 0),
-        (255, 255, 255)
+        content="Hello, World!",
+        mode=SGTextMode.TEXT_STATIC,
+        speed=1,
+        background_mode=SGBackgroundColorMode.STATIC,
+        background=(0, 0, 0),
+        foreground=(255, 255, 255)
     )
 
     def __init__(self, shining_glasses, text=None):
