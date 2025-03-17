@@ -85,6 +85,16 @@ class BLEDriver:
         self.device.disconnect()
         self._connected = False
 
+    def is_connected(self):
+        if self.device.is_connected():
+            self._connected = True
+        else:
+            print("Device disconnected")
+            self._connected = False
+        
+        return self._connected
+
+
     def write(self, **k):
         show_command = k.pop('show_command', False)
         suid, write_characteristic, value = k.get('suid'), k.get('write_characteristic'), k.get('value')
@@ -119,7 +129,7 @@ class BLEDriver:
         return self.device.write_request(suid, write_characteristic, value)
 
     def notify(self, **k):
-        suid, write_characteristic = k.get('suid'), k.get('write_characteristic'), k.get('value')
+        suid, write_characteristic = k.get('suid'), k.get('write_characteristic')
         if not self._connected:
             print("Not connected to device")
             return
