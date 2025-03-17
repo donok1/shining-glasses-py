@@ -34,7 +34,7 @@ class BLENotifications:
 
 class BLEDriver:
     device = None
-    notifications = BLENotifications()
+    notifications = None
     cipher = None
 
     _connected = False
@@ -46,6 +46,7 @@ class BLEDriver:
             self.cipher = AES.new(*encryption)
         self._align_amount = align_amount
         self.device_name = device_name
+        self.notifications = BLENotifications(driver=self)  # Pass the instance of BLEDriver
 
     def align(self, value):
         if not self._align_amount:
@@ -139,5 +140,5 @@ class ShiningGlassesDriver(BLEDriver):
             adapter,
             encryption=(AES_KEY, AES_MODE),
             align_amount=16,
-            device_name="GLASSES-02FB6E"
+            device_name="GLASSES-01FF46"
         )

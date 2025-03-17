@@ -2,7 +2,7 @@ from enum import Enum
 from decorators import Service, WriteCharacteristic
 from util import assert_type, assert_int_range, assert_equal
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, Tuple
 
 class SGTextMode(Enum):
     TEXT_STATIC = 1
@@ -26,8 +26,8 @@ class SGTextType:
     mode: SGTextMode
     speed: Optional[int]
     background_mode: Optional[SGBackgroundColorMode]
-    background: Optional[(int, int, int)]
-    foreground: Optional[(int, int, int)]
+    background: Optional[Tuple[int, int, int]]
+    foreground: Optional[Tuple[int, int, int]]
 
 class SGText:
     text = SGTextType(
